@@ -95,7 +95,6 @@ class ArmyTIGER(object):
         self.label_error.setObjectName("label_problem")
         
         ArmyTIGER_UI.setCentralWidget(self.centralwidget)
-
         self.retranslateUi(ArmyTIGER_UI)
         QMetaObject.connectSlotsByName(ArmyTIGER_UI)
         
@@ -128,7 +127,7 @@ class ArmyTIGER(object):
 
     def retranslateUi(self, ArmyTIGER_UI):
         _translate = QCoreApplication.translate
-        ArmyTIGER_UI.setWindowTitle(_translate("ArmyTIGER_UI", "MainWindow"))
+        ArmyTIGER_UI.setWindowTitle(_translate("ArmyTIGER_UI", "ArmyTIGER Assistant"))
         self.btn_listening.setText(_translate("ArmyTIGER_UI", "REC"))
         self.btn_stop.setText(_translate("ArmyTIGER_UI", "STOP"))
         
