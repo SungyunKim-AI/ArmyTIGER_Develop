@@ -17,10 +17,10 @@ class MainThread(QThread):
     def __init__(self):
         super().__init__()
         self.working = True
-        # self.total_command = []
         
     def stop(self):
         self.working = False
+        self.wait(3000)
         self.quit()
         
     def resume(self):
@@ -36,8 +36,8 @@ class MainThread(QThread):
     def stt(self):
         try:
             listener = sr.Recognizer()
-            # file_path = "./IMG/시나리오1_훈련상황.wav"
-            file_path = "./IMG/시나리오2_실제상황.wav"
+            file_path = "./IMG/시나리오1_훈련상황.wav"
+            # file_path = "./IMG/시나리오2_실제상황.wav"
             audio_file = sr.AudioFile(file_path)
             v_samplerate, v_data = scipy.io.wavfile.read(file_path)
             sd.play(v_data, v_samplerate)
@@ -74,14 +74,17 @@ class MainThread(QThread):
         
         armyTIGER.update_Anw.emit(form_text)
         armyTIGER.update_Q.emit(ASS_text)
-        armyTIGER.baseUI.emit()
-        self.quit()
+        armyTIGER.baseUI_1.emit(True)
+        armyTIGER.baseUI_2.emit(True)
+        armyTIGER.repaint()
+        self.stop()
 
 class Main(QMainWindow):
     cpath =""
     update_Q = pyqtSignal(str)
     update_Anw = pyqtSignal(str)
-    baseUI = pyqtSignal()
+    baseUI_1 = pyqtSignal(bool)
+    baseUI_2 = pyqtSignal(bool)
     
     def __init__(self, path):
         self.cpath = path
@@ -92,30 +95,29 @@ class Main(QMainWindow):
         self.ui.btn_stop.clicked.connect(self.stopTask)
         self.update_Q.connect(self.ui.te_q.setText)
         self.update_Anw.connect(self.ui.te_anw.setText)
-        self.baseUI.connect(self.baseUITask)
-        # self.wait_Sig.connect(self.waitTask)
+        self.baseUI_1.connect(self.ui.label_listening.setHidden)
+        self.baseUI_2.connect(self.ui.label_processing.setHidden)
         
     def listeningTask(self):
-        try:
-            self.listening
-            self.listening.deleteLater()
-        except:
-            self.listening = self.ui.listeningUI()
-            main_thread.start()
+        # try:
+        #     self.listening
+        #     self.listening.deleteLater()
+        # except:
+        # self.listening = 
+        self.ui.listeningUI()
+        main_thread.start()
     
     def baseUITask(self):
-        self.ui.label_listening.setHidden(True)
-        self.ui.label_processing.setHidden(True)
-    
+        self.ui.label_base.hi
+        # self.ui.label_listening.setHi hide()
+        
     def stopTask(self):
-        try:
-            self.stop
-            self.stop.deleteLater()
-        except:
-            self.stop = self.ui.stopUI()
-    
-    # def waitTask(self):
-    #     main_thread.wait(25000)
+        # try:
+        #     self.stop
+        #     self.stop.deleteLater()
+        # except:
+        # self.stop = 
+        self.ui.stopUI()
         
 
 main_thread = MainThread()
