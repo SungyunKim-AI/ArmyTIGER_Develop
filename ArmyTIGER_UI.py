@@ -43,14 +43,14 @@ class ArmyTIGER(object):
         self.label_text.setGeometry(QRect(560, 30, 400, 800))
         self.label_text.setObjectName("text_label")
         
-        self.lbl1 = QLabel('Assitant\'s Answer')
+        self.lbl1 = QLabel('상황보고/전파')
         self.lbl1.setFont(QFont(self.families[0],20)) #폰트,크기 조절
         self.lbl1.setStyleSheet(f"color: {self.green_color};") #글자색 변환
         
         self.te_anw = QTextEdit()
         self.te_anw.setAcceptRichText(False)
         
-        self.lbl2 = QLabel('\nUser\'s Speech')
+        self.lbl2 = QLabel('\n현황 파악 도우미')
         self.lbl2.setFont(QFont(self.families[0],20))
         self.lbl2.setStyleSheet(f"color: {self.green_color};") #글자색 변환
         
