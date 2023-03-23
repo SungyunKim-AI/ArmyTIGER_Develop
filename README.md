@@ -12,7 +12,9 @@
 ## 개발 환경
 
 Mac OS
+
 Python 3.9
+
 Speech Recognition
 
 
@@ -21,6 +23,7 @@ Speech Recognition
 아래 링크를 클릭하시면 시연 영상을 시청하실 수 있습니다.
 
 _[실제상황 시연 영상][https://youtu.be/0q0WGzMn_7E]_
+
 _[훈련상황 시연 영상][https://youtu.be/y0gQPNUuWg8]_
 
 ## 개발자 약력
